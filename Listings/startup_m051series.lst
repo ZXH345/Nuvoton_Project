@@ -25,15 +25,17 @@ ARM Macro Assembler    Page 1
 =3
    17 00000000         Stack_Mem
                                SPACE            Stack_Size
-   18 00000200         __initial_sp
-   19 00000200         
-   20 00000200         
-   21 00000200         ; <h> Heap Configuration
-   22 00000200         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
-   23 00000200         ; </h>
-   24 00000200                 IF               :LNOT: :DEF: Heap_Size
+   18 00000400 20000400 
+                       __initial_sp
+                               EQU              0X20000400
+   19 00000400         
+   20 00000400         
+   21 00000400         ; <h> Heap Configuration
+   22 00000400         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   23 00000400         ; </h>
+   24 00000400                 IF               :LNOT: :DEF: Heap_Size
    26                          ENDIF
-   27 00000200                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+   27 00000400                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
 3
    28 00000000         __heap_base
    29 00000000         Heap_Mem
@@ -49,7 +51,7 @@ ARM Macro Assembler    Page 1
    38 00000000                 AREA             RESET, DATA, READONLY
    39 00000000                 EXPORT           __Vectors
    40 00000000         
-   41 00000000 00000000 
+   41 00000000 20000400 
                        __Vectors
                                DCD              __initial_sp ; Top of Stack
    42 00000004 00000000        DCD              Reset_Handler ; Reset Handler
@@ -61,14 +63,14 @@ ARM Macro Assembler    Page 1
    47 00000018 00000000        DCD              0           ; Reserved
    48 0000001C 00000000        DCD              0           ; Reserved
    49 00000020 00000000        DCD              0           ; Reserved
-   50 00000024 00000000        DCD              0           ; Reserved
-   51 00000028 00000000        DCD              0           ; Reserved
 
 
 
 ARM Macro Assembler    Page 2 
 
 
+   50 00000024 00000000        DCD              0           ; Reserved
+   51 00000028 00000000        DCD              0           ; Reserved
    52 0000002C 00000000        DCD              SVC_Handler ; SVCall Handler
    53 00000030 00000000        DCD              0           ; Reserved
    54 00000034 00000000        DCD              0           ; Reserved
@@ -126,14 +128,14 @@ NLY
   102 00000000         
   103 00000000         
   104 00000000         
-  105 00000000         ; Reset Handler 
-  106 00000000         
 
 
 
 ARM Macro Assembler    Page 3 
 
 
+  105 00000000         ; Reset Handler 
+  106 00000000         
   107 00000000         
   108 00000000         
   109 00000000         Reset_Handler
@@ -191,14 +193,14 @@ ARM Macro Assembler    Page 3
   147 0000000E                 EXPORT           WDT_IRQHandler            [WEAK
 ]
   148 0000000E                 EXPORT           EINT0_IRQHandler          [WEAK
-]
-  149 0000000E                 EXPORT           EINT1_IRQHandler          [WEAK
 
 
 
 ARM Macro Assembler    Page 4 
 
 
+]
+  149 0000000E                 EXPORT           EINT1_IRQHandler          [WEAK
 ]
   150 0000000E                 EXPORT           GPIOP0P1_IRQHandler       [WEAK
 ]
@@ -256,14 +258,14 @@ ARM Macro Assembler    Page 4
   184 0000000E         SPI0_IRQHandler
   185 0000000E         SPI1_IRQHandler
   186 0000000E         I2C0_IRQHandler
-  187 0000000E         I2C1_IRQHandler
-  188 0000000E         ACMP01_IRQHandler
 
 
 
 ARM Macro Assembler    Page 5 
 
 
+  187 0000000E         I2C1_IRQHandler
+  188 0000000E         ACMP01_IRQHandler
   189 0000000E         ACMP23_IRQHandler
   190 0000000E         PWRWU_IRQHandler
   191 0000000E         ADC_IRQHandler
@@ -296,7 +298,7 @@ ARM Macro Assembler    Page 5
   224 0000001C                 END
               00000000 
               00000000 
-              00000200 
+              00000400 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=.\objects\startup_m051series.d -o.\objects\startup_m051series.o -I
@@ -326,15 +328,7 @@ Symbol: Stack_Mem
       At line 215 in file CMSIS\Src\startup_M051Series.s
       At line 217 in file CMSIS\Src\startup_M051Series.s
 
-__initial_sp 00000200
-
-Symbol: __initial_sp
-   Definitions
-      At line 18 in file CMSIS\Src\startup_M051Series.s
-   Uses
-      At line 41 in file CMSIS\Src\startup_M051Series.s
-Comment: __initial_sp used once
-3 symbols
+2 symbols
 
 
 
@@ -760,7 +754,7 @@ Symbol: Heap_Size
       At line 29 in file CMSIS\Src\startup_M051Series.s
       At line 216 in file CMSIS\Src\startup_M051Series.s
 
-Stack_Size 00000200
+Stack_Size 00000400
 
 Symbol: Stack_Size
    Definitions
@@ -769,7 +763,15 @@ Symbol: Stack_Size
       At line 17 in file CMSIS\Src\startup_M051Series.s
       At line 215 in file CMSIS\Src\startup_M051Series.s
 
-2 symbols
+__initial_sp 20000400
+
+Symbol: __initial_sp
+   Definitions
+      At line 18 in file CMSIS\Src\startup_M051Series.s
+   Uses
+      At line 41 in file CMSIS\Src\startup_M051Series.s
+Comment: __initial_sp used once
+3 symbols
 
 
 

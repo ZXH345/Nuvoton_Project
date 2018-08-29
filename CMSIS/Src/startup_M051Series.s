@@ -10,12 +10,12 @@
 ; *
 ; ******************************************************************************/
     IF :LNOT: :DEF: Stack_Size
-Stack_Size      EQU     0x00000200
+Stack_Size      EQU     0x00000400
     ENDIF
 
                 AREA    STACK, NOINIT, READWRITE, ALIGN=3
 Stack_Mem       SPACE   Stack_Size
-__initial_sp
+__initial_sp	EQU		0X20000400
 
 
 ; <h> Heap Configuration

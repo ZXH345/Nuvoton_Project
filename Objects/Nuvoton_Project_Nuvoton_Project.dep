@@ -1,4 +1,4 @@
 Dependencies for Project 'Nuvoton_Project', Target 'Nuvoton_Project': (DO NOT MODIFY !)
-F (.\CMSIS\Src\startup_M051Series.s)(0x5B2C8FDE)(--cpu Cortex-M0 -g --apcs=interwork -I D:\keil517\ARM\RV31\INC-I D:\keil517\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 517"--list .\listings\startup_m051series.lst --xref -o .\objects\startup_m051series.o --depend .\objects\startup_m051series.d)
-F (.\User\Main.s)(0x5B30C302)(--cpu Cortex-M0 -g --apcs=interwork -I D:\keil517\ARM\RV31\INC-I D:\keil517\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 517"--list .\listings\main.lst --xref -o .\objects\main.o --depend .\objects\main.d)
+F (.\CMSIS\Src\startup_M051Series.s)(0x5B3AC9AF)(--cpu Cortex-M0 -g --apcs=interwork -I D:\keil517\ARM\RV31\INC-I D:\keil517\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 517"--list .\listings\startup_m051series.lst --xref -o .\objects\startup_m051series.o --depend .\objects\startup_m051series.d)
+F (.\User\Main.s)(0x5B4871EF)(--cpu Cortex-M0 -g --apcs=interwork -I D:\keil517\ARM\RV31\INC-I D:\keil517\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 517"--list .\listings\main.lst --xref -o .\objects\main.o --depend .\objects\main.d)
 I (User\NUC029xx.hs)(0x5B2DB69C)
